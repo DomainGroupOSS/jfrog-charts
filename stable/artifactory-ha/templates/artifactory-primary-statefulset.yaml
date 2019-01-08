@@ -242,7 +242,7 @@ spec:
         readinessProbe:
           httpGet:
             path: '/artifactory/webapp/#/login'
-            port: 8040
+            port: {{ .Values.artifactory.internalPort }}
           initialDelaySeconds: {{ .Values.artifactory.readinessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.artifactory.readinessProbe.periodSeconds }}
           timeoutSeconds: {{ .Values.artifactory.readinessProbe.timeoutSeconds }}
@@ -253,7 +253,7 @@ spec:
         livenessProbe:
           httpGet:
             path: '/artifactory/webapp/#/login'
-            port: 8040
+            port: {{ .Values.artifactory.internalPort }}
           initialDelaySeconds: {{ .Values.artifactory.livenessProbe.initialDelaySeconds }}
           periodSeconds: {{ .Values.artifactory.livenessProbe.periodSeconds }}
           timeoutSeconds: {{ .Values.artifactory.livenessProbe.timeoutSeconds }}
